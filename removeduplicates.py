@@ -1,19 +1,16 @@
-def removeDuplicates(self, nums) -> int:
-    k = len(nums)
-    j = 0
-    while j < (k-1):
-        if nums[j] == nums[j+1] and nums[j+1] == nums[j+2]:
-            k = k-1
-            i = nums.pop(j+2)
-            print(nums)
-            nums.append(i)
-            print(nums)
-            j= j-1
-            print(j)
-        j = j +1
-    return k
-        
+from typing import List
 
-array = [0,0,1,1,1,1,2,3,3]
+def removeDuplicates(self, nums: List[int]) -> int:
+    
+    for i in range(1, len(nums)):
+        if nums[i] == nums[i-1]:
+            nums[i-1] = -200         
+    print(nums)
+    nums2 = [j for j in nums if j != -200]
+    nums = nums2
+    print(nums)
+    return len(nums)
+
+array = [1,1,1,2]
 
 removeDuplicates(0, array)

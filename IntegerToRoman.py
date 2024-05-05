@@ -1,32 +1,19 @@
-class Solution(object):
-    def __init__(self,num):
-        self.num = num
-
-    def intToRoman(self, num):
-        """
-        :type num: int
-        :rtype: str
-        """
-        answer = ""  #3612
-        if num % 1000 > 1 or num % 1000 == 0:
-            answer = answer+("".join("M"*(num//1000)))
-        num = num - (num//1000 * 1000)
-        
-        print (num)
-
-        if num == 0: return answer
-        if  400: answer = answer+("".join("CD"))
-        if num > num % 500 > 1 or num % 500 == 0:
-            answer = answer+("".join("D"))
-        num = num - 500
-        if num == 0: return answer
-
+def intToRoman(num) -> str:
+    divisions = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
+    letters = ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"]
+   
+    roman_letters = ""
+    i = 0
+    while num > 0:
+        for _ in range(num // divisions[i]):
+            roman_letters += letters[i]
+            num -= divisions[i]
+        i += 1
+    
+    return roman_letters
+            
         
 
 
 
-        return answer
-                
-test = Solution(3400)
-
-print(test.intToRoman(test.num))
+print(intToRoman(1994))
