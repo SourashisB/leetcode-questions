@@ -9,3 +9,4 @@ def longestSubstring(s: str) -> int:
         char_set.add(s[r])
         max = max(max, r - l + 1)
     return max
+# Test cases
