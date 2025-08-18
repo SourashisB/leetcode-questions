@@ -1,0 +1,17 @@
+Failure to Converge:
+
+- Rare Rewards. 
+
+Since the pattern of handing out rewards results in getting 0 in most cases, the model will have a harder time converging due to lack of feedback. Random sampling is also to blame since actions are in the range of 1,1000. Randomly sampling a condition for reward is rare. 
+
+Improving Convergence
+
+There's a couple of methods we can use to improve the convergence of the model, and specifically target the problems mentioned previously. 
+
+- Incremental Rewards: Instead of getting the rare exact match, we can increment rewards. 1 -> 2 matching digits, 2 -> 3 matching digits, 4 -> 4 matching digits. By making the rewards incremental, we make rewarding conditions more common and give more data to learn from.
+
+- Pre Training: As mentioned before, pre-training with synthetic reward pairs will help the model learn quicker.
+
+Future Direction:
+
+- Model Change. Since we are using reinforcement learning, MLP may not be the best fit. MLP is best used as a general purpose neural network. I used Deep Q Learning as its using a reinforcement learning algorithm. 
